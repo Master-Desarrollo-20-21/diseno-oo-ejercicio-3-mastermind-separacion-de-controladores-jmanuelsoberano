@@ -14,7 +14,7 @@
 
         private void PlayGame()
         {
-            this.GameStart();
+            this.StartGame();
 
             do
             {
@@ -24,17 +24,17 @@
                 this._board.WriteLine();
             } while (!this._board.IsFinished());
 
-            this.GameOver();
+            this.FinishGame();
         }
 
-        private void GameStart()
+        private void StartGame()
         {
             Message.Title.WriteLine();
             this._board = new Board();
             this._board.WriteLine();
         }
 
-        private void GameOver()
+        private void FinishGame()
         {
             Message message = Message.Looser;
             if (this._board.IsWinner())
