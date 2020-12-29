@@ -7,13 +7,13 @@ namespace MasterMind
 {
     public class Color
     {
-        public static readonly Color RED = new Color('r');
-        public static readonly Color BLUE = new Color('b');
-        public static readonly Color YELLOW = new Color('y');
-        public static readonly Color GREEN = new Color('g');
-        public static readonly Color ORANGE = new Color('o');
-        public static readonly Color PURPLE = new Color('p');
-        public static readonly Color NULLCOLOR = new Color(' ');
+        public static readonly Color Red = new Color('r');
+        public static readonly Color Blue = new Color('b');
+        public static readonly Color Yellow = new Color('y');
+        public static readonly Color Green = new Color('g');
+        public static readonly Color Orange = new Color('o');
+        public static readonly Color Purple = new Color('p');
+        public static readonly Color Nullcolor = new Color(' ');
 
         private char _initial;
 
@@ -21,17 +21,17 @@ namespace MasterMind
         {
             get
             {
-                yield return RED;
-                yield return BLUE;
-                yield return YELLOW;
-                yield return GREEN;
-                yield return ORANGE;
-                yield return PURPLE;
-                yield return NULLCOLOR;
+                yield return Red;
+                yield return Blue;
+                yield return Yellow;
+                yield return Green;
+                yield return Orange;
+                yield return Purple;
+                yield return Nullcolor;
             }
         }
 
-        Color(char initial)
+        private Color(char initial)
         {
             this._initial = initial;
         }
@@ -55,7 +55,7 @@ namespace MasterMind
                     return Color.Get(i);
                 }
             }
-            return Color.NULLCOLOR;
+            return Color.Nullcolor;
         }
 
         public static int Length()
@@ -70,13 +70,13 @@ namespace MasterMind
 
         public void Write()
         {
-            Debug.Assert(this != Color.NULLCOLOR);
+            Debug.Assert(this != Color.Nullcolor);
             Consola.GetInstance().Write(_initial);
         }
 
         public Boolean IsNull()
         {
-            return this == Color.NULLCOLOR;
+            return this == Color.Nullcolor;
         }
     }
 }

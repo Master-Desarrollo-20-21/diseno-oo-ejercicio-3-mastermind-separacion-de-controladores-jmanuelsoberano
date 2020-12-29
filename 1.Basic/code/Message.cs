@@ -14,40 +14,40 @@ namespace MasterMind
         public static readonly Message Looser = new Message("You've lost!!! :-(");
         public static readonly Message SecretCombination = new Message("****");
 
-        private string value;
+        private string _value;
 
         private Message(string message)
         {
-            this.value = message;
+            this._value = message;
         }
 
         public override string ToString()
         {
-            return value;
+            return _value;
         }
 
         public void Write()
         {
-            Consola.GetInstance().Write((this.value));
+            Consola.GetInstance().Write((this._value));
         }
 
         public void WriteLine()
         {
-            Consola.GetInstance().WriteLine(this.value);
+            Consola.GetInstance().WriteLine(this._value);
         }
 
         public void WriteLine(int attempts)
         {
             Debug.Assert(this == Attempts);
 
-            Consola.GetInstance().WriteLine(this.value.Replace("#attempts", "" + attempts));
+            Consola.GetInstance().WriteLine(this._value.Replace("#attempts", "" + attempts));
         }
 
         public void WriteLine(int blacks, int whites)
         {
             Debug.Assert(this == Result);
 
-            Consola.GetInstance().WriteLine(this.value.Replace("#blacks", "" + blacks).Replace("#whites", "" + whites));
+            Consola.GetInstance().WriteLine(this._value.Replace("#blacks", "" + blacks).Replace("#whites", "" + whites));
         }
 
     }

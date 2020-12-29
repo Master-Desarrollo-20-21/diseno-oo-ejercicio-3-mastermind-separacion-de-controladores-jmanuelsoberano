@@ -5,8 +5,9 @@ namespace MasterMind
 {
     public class YesNoDialog
     {
-        private static readonly char Affirmative = 'y';
-        private static readonly char Negative = 'n';
+        private const char Affirmative = 'y';
+        private const char Negative = 'n';
+
         private static readonly string Suffix = "? (" +
                                                 Affirmative + "/" +
                                                 Negative + "): ";

@@ -9,18 +9,18 @@ namespace MasterMind
         public static readonly Error WrongLength = new Error("Wrong proposed combination length");
         public static readonly Error NullError = new Error("");
 
-        private String message;
+        private String _message;
 
-        Error(String message)
+        private Error(String message)
         {
-            this.message = message;
+            this._message = message;
         }
 
         public void WriteLine()
         {
             if (!this.IsNull())
             {
-                Consola.GetInstance().WriteLine(this.message);
+                Consola.GetInstance().WriteLine(this._message);
             }
         }
 

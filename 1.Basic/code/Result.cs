@@ -5,7 +5,7 @@ namespace MasterMind
 {
     public class Result
     {
-        public const int WIDTH = 4;
+        public const int Width = 4;
         private int _blacks;
         private int _whites;
 
@@ -20,7 +20,7 @@ namespace MasterMind
 
         public Boolean IsWinner()
         {
-            return this._blacks == Result.WIDTH;
+            return this._blacks == Result.Width;
         }
         
         public void WriteLine()

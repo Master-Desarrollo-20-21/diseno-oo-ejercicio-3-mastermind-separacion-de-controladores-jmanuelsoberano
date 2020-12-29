@@ -4,7 +4,7 @@ namespace MasterMind
 {
     class Board
     {
-        private const int MAX_ATTEMPTS = 10;
+        private const int MaxAttempts = 10;
         private SecretCombination _secretCombination;
         private ProposedCombination[] _proposedCombinations;
         private Result[] _results;
@@ -13,8 +13,8 @@ namespace MasterMind
         public Board()
         {
             this._secretCombination = new SecretCombination();
-            this._proposedCombinations = new ProposedCombination[Board.MAX_ATTEMPTS];
-            this._results = new Result[Board.MAX_ATTEMPTS];
+            this._proposedCombinations = new ProposedCombination[Board.MaxAttempts];
+            this._results = new Result[Board.MaxAttempts];
             this._attempts = 0;
         }
 
@@ -49,7 +49,7 @@ namespace MasterMind
 
         private Boolean IsLooser()
         {
-            return this._attempts == Board.MAX_ATTEMPTS;
+            return this._attempts == Board.MaxAttempts;
         }
     }
 }

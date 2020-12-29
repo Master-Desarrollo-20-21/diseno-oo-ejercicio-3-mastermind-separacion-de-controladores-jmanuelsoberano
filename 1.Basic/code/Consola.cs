@@ -5,11 +5,11 @@ namespace MasterMind
 {
     public class Consola
     {
-        private static Consola _console = new Consola();
+        private static readonly Consola Console = new Consola();
 
         public static Consola GetInstance()
         {
-            return _console;
+            return Console;
         }
 
         public String ReadString(String title)
@@ -18,7 +18,7 @@ namespace MasterMind
             this.Write(title);
             try
             {
-                input = Console.ReadLine();
+                input = System.Console.ReadLine();
             }
             catch (Exception)
             {
@@ -72,22 +72,22 @@ namespace MasterMind
 
         public void WriteLine()
         {
-            Console.WriteLine();
+            System.Console.WriteLine();
         }
 
         public void Write(String cadena)
         {
-            Console.Write(cadena);
+            System.Console.Write(cadena);
         }
 
         public void WriteLine(String cadena)
         {
-            Console.WriteLine(cadena);
+            System.Console.WriteLine(cadena);
         }
 
         public void Write(char character)
         {
-            Console.Write(character);
+            System.Console.Write(character);
         }
 
     }

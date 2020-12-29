@@ -1,0 +1,161 @@
+@startuml
+
+class MasterMinde {
+    - Board _board
+
+    + void Play()
+    - void PlayGame()
+    - void Init()
+    - void Finish()
+    - bool IsResume()
+}
+
+class YesNoDialog {
+    - const char Affirmative
+    - const char Negative
+    - {static} readonly string Suffix
+    - {static} readonly string Message
+    - private char _answer
+
+    + Boolean Read(String message)
+    - Boolean IsAfirmative()
+    - char GetAnswer()
+    - Boolean IsNegative()
+}
+
+class Message {
+    + {static} readonly Message Attempts
+    + {static} readonly Message Resume
+    + {static} readonly Message Result
+    + {static} readonly Message ProposedCombination
+    + {static} readonly Message Title
+    + {static} readonly Message Winner
+    + {static} readonly Message Looser
+    + {static} readonly Message SecretCombination
+    - string _value
+
+    - Message(string message)
+    + string ToString()
+    + void Write()
+    + void WriteLine()
+    + void WriteLine(int attempts)
+    + void WriteLine(int blacks, int whites)
+}
+
+class Consola {
+    - {static} readonly Consola _console
+
+    + {static} Consola GetInstance()
+    + String ReadString(String title)
+    + String ReadString()
+    + int ReadInt(String title)
+    + char ReadChar(String title)
+    + void WriteLine()
+    + void Write(String cadena)
+    + void WriteLine(String cadena)
+    + void Write(char character)
+}
+
+class Color {
+    + {static} readonly Color Red
+    + {static} readonly Color Blue
+    + {static} readonly Color Yellow
+    + {static} readonly Color Green
+    + {static} readonly Color Orange
+    + {static} readonly Color Purple
+    + {static} readonly Color Nullcolor
+    - char _initial
+    - static IEnumerable<Color> Values
+
+    - Color(char initial)
+    + {static} String GetInitials()
+    + {static} Color GetInstance(char character)
+    + {static} int Length()
+    + {static} Color Get(int index)
+    + void Write()
+    + Boolean IsNull()
+}
+
+class Error {
+    + {static} readonly Error Duplicated
+    + {static} readonly Error WrongCharacters
+    + {static} readonly Error WrongLength
+    + {static} readonly Error NullError
+
+    - Error(String message)
+    + void WriteLine()
+    + Boolean IsNull()
+}
+
+abstract class Combination {
+    # List<Color> Colors
+    # Combination()
+}
+
+class ProposedCombination {
+    + void Write()
+    + void Read()
+    - Error CheckError(String characters)
+    + Boolean Contains(Color color, int position)
+    + Boolean Contains(Color color)
+}
+
+class SecretCombination {
+    + SecretCombination()
+    + Result GetResult(ProposedCombination proposedCombination)
+    + void WriteLine()
+}
+
+class Result {
+    + const int Width
+    - int _blacks
+    - int _whites
+
+    + Result(int blacks, int whites)
+    + Boolean IsWinner()
+    + void WriteLine()
+}
+
+class Board {
+    - const int MaxAttempts
+    - SecretCombination _secretCombination
+    - ProposedCombination[] _proposedCombinations
+    - Result[] _results
+    - int _attempts
+
+    + Board()
+    + void WriteLine()
+    + void Add(ProposedCombination proposedCombination)
+    + Boolean IsFinished()
+    + Boolean IsWinner()
+    + Boolean IsLooser()
+}
+
+YesNoDialog ..> Consola
+Message ..> Consola
+Color ..> Consola
+Error ..> Consola
+MasterMinde *--> Board
+MasterMinde ..> YesNoDialog
+MasterMinde ..> Message
+MasterMinde ..> ProposedCombination
+Combination <|-- ProposedCombination
+Combination <|-- SecretCombination
+Combination o--> Color
+ProposedCombination ..> Color
+ProposedCombination ..> Error
+ProposedCombination ..> Consola
+ProposedCombination ..> Message
+SecretCombination ..> Color
+SecretCombination ..> Consola
+SecretCombination ..> Message
+SecretCombination ..> ProposedCombination
+SecretCombination ..> Result
+Result ..> Message
+Board *--> SecretCombination
+Board o--> ProposedCombination
+Board o--> Result
+Board ..> Consola
+Board ..> Message
+
+@enduml

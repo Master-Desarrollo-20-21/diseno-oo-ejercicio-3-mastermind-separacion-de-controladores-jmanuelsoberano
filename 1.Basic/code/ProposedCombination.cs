@@ -32,7 +32,7 @@ namespace MasterMind
 
         private Error CheckError(String characters)
         {
-            if (characters.Length != Result.WIDTH)
+            if (characters.Length != Result.Width)
             {
                 return Error.WrongLength;
             }
