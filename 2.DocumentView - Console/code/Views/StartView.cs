@@ -4,10 +4,8 @@ using MasterMind.Utils;
 
 namespace MasterMind.Views
 {
-    public class StartView : WithBoardView
+    public class StartView
     {
-        public StartView(Board game) : base(game) {}
-
         public void Interact()
         {
             Consola.GetInstance().WriteLine(Message.TITLE.ToString());

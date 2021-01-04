@@ -13,7 +13,7 @@ namespace MasterMind.Views
         
         public View(Board board) : base(board)
         {
-            this._startView = new StartView(this.Board);
+            this._startView = new StartView();
             this._playView = new PlayView(this.Board);
             this._resumeView = new ResumeView(this.Board);
         }

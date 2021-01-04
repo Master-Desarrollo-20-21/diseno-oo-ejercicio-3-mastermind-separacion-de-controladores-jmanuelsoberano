@@ -160,7 +160,6 @@ package MasterMind.Views {
     }
 
     class StartView {
-        + StartView(Models.Board game)
         + void Interact()
     }
 
@@ -202,7 +201,6 @@ package MasterMind.Views {
 
 MasterMinde *--> View
 WithBoardView <|-- View
-WithBoardView <|-- StartView
 WithBoardView <|-- ResumeView
 WithBoardView <|-- PlayView
 WithBoardView <|-- BoardView
