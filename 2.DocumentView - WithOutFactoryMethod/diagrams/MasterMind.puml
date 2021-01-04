@@ -1,0 +1,295 @@
+@startuml
+
+class ConsoleMasterMinde {
+    - ConsoleView _consoleView
+
+    + ConsoleMasterMinde()
+    + void Play()
+}
+
+class GraphicsMasterMinde {
+    - GraphicsView _graphicsView
+
+    + GraphicsMasterMinde()
+    + void Play()
+}
+
+
+package MasterMind.Models {
+
+    class Board {
+        - const int MAX_ATTEMPTS
+        - SecretCombination _secretCombination
+        - List<ProposedCombination> _proposedCombinations
+        - List<Result> _results
+        - int _attempts
+
+        + Board()
+        + void Reset()
+        + void AddProposedCombination(ProposedCombination proposedCombination)
+        + Boolean IsWinner()
+        + Boolean IsLooser()
+        + Boolean IsFinished()
+        + int GetAttemps()
+        + Result GetResult(int position)
+        + ProposedCombination GetProposedCombination(int position)
+    }
+
+    abstract class Combination {
+        - {static} readonly int WIDTH
+        # List<Color> Colors
+
+        # Combination()
+        + {static} int GetWidth()
+    }
+
+    class ProposedCombination {
+        + Error CheckError(String characters)
+        + Boolean Contains(Color color, int position)
+        + Boolean Contains(Color color)
+        + List<Color> GetColors()
+    }
+
+    class Result {
+        + const int WIDTH
+        - int _blacks
+        - int _whites
+
+        + Result(int blacks, int whites)
+        + Boolean IsWinner()
+        + int GetWhites()
+        + int GetBlacks()
+    }
+
+    class SecretCombination {
+        + SecretCombination()
+        + Result GetResult(ProposedCombination proposedCombination)
+    }
+
+}
+
+package MasterMind.Utils {
+
+    class Consola {
+        - {static} readonly Consola _console
+
+        + {static} Consola GetInstance()
+        + String ReadString(String title)
+        + String ReadString()
+        + int ReadInt(String title)
+        + char ReadChar(String title)
+        + void WriteLine()
+        + void Write(String cadena)
+        + void WriteLine(String cadena)
+        + void Write(char character)
+    }
+
+    class YesNoDialog {
+        - const char AFFIRMATIVE
+        - const char NEGATIVE
+        - {static} readonly string SUFFIX
+        - {static} readonly string MESSAGE
+        - private char _answer
+
+        + Boolean Read(String message)
+        - Boolean IsAfirmative()
+        - char GetAnswer()
+        - Boolean IsNegative()
+    }
+
+}
+
+package MasterMind.Types {
+
+    class Color {
+        + {static} readonly Color RED
+        + {static} readonly Color BLUE
+        + {static} readonly Color YELLOW
+        + {static} readonly Color GREEN
+        + {static} readonly Color ORANGE
+        + {static} readonly Color PURPLE
+        + {static} readonly Color NULL
+        - char _initial
+        - static IEnumerable<Color> Values
+
+        - Color(char initial)
+        + {static} String GetInitials()
+        + {static} Color GetInstance(char character)
+        + {static} int Length()
+        + {static} Color Get(int index)
+        + Boolean IsNull()
+        + string ToString()
+    }
+
+    class Error {
+        + {static} readonly Error DUPLICATED
+        + {static} readonly Error WRONG_CHARACTERS
+        + {static} readonly Error WRONG_LENGTH
+        + {static} readonly Error NULL
+        - String _message
+
+        - Error(String message)
+        + Boolean IsNull()
+        + string ToString()
+    }
+
+    class Message {
+        + {static} readonly Message ATTEMPTS
+        + {static} readonly Message RESUME
+        + {static} readonly Message RESULT
+        + {static} readonly Message PROPOSED_COMBINATION
+        + {static} readonly Message TITLE
+        + {static} readonly Message WINNER
+        + {static} readonly Message LOOSER
+        + {static} readonly Message SECRET
+        - string _value
+
+        - Message(string message)
+        + string ToString()
+    }
+
+}
+
+package MasterMind.Views {
+
+    abstract class WithBoardView {
+        # Board Board
+
+        # WithBoardView(Board board)
+    }
+
+    abstract class View {
+        + View(Board board)
+        + void Interact()
+        # abstract void Start()
+        # abstract void Play()
+        # abstract bool IsResume()
+    }
+
+}
+
+package MasterMind.Views.Console {
+
+    class ConsoleView {
+        - StartView _startView
+        - PlayView _playView
+        - ResumeView _resumeView
+
+        + ConsoleView(Board board)
+    }
+
+    class StartView {
+        + void Interact()
+    }
+
+    class SecretCombinationView {
+        + void WriteLine()
+    }
+
+    class ResumeView {
+        + ResumeView(Board game)
+        + Boolean Interact()
+    }
+
+    class ResultView {
+        - Result _result
+        + ResultView(Result result)
+        + void WriteLine()
+    }
+
+    class ProposedCombinationView {
+        - ProposedCombination proposedCombination
+        + ProposedCombinationView(ProposedCombination proposedCombination)
+        + void Write()
+        + void Read()
+    }
+
+    class PlayView {
+        - BoardView _boardView
+        + PlayView(Board board)
+        + void Interact()
+    }
+
+    class BoardView {
+        - SecretCombinationView _secretCombinationView
+        + BoardView(Board board)
+        + void Write()
+    }
+
+}
+
+package MasterMind.Views.Graphics {
+
+    class GraphicsView {
+        - StartView _startView
+        - PlayView _playView
+        - ResumeView _resumeView
+
+        + GraphicsView(Board board)
+    }
+
+}
+
+GraphicsMasterMinde *--> GraphicsView
+View <|-- GraphicsView
+
+ConsoleMasterMinde *--> ConsoleView
+
+View <|-- ConsoleView
+ConsoleView *--> StartView
+ConsoleView *--> PlayView
+ConsoleView *--> ResumeView
+
+WithBoardView <|-- View
+WithBoardView <|-- ResumeView
+WithBoardView <|-- PlayView
+WithBoardView <|-- BoardView
+WithBoardView *--> Board
+
+StartView ..> Consola
+StartView ..> SecretCombinationView
+
+SecretCombinationView ..> Combination
+SecretCombinationView ..> Consola
+SecretCombinationView ..> Message
+
+ResumeView ..> YesNoDialog
+ResumeView ..> Message
+
+ResultView *--> Result
+ResultView ..> Consola
+ResultView ..> Message
+
+ProposedCombinationView *--> ProposedCombination
+ProposedCombinationView ..> Color
+ProposedCombinationView ..> Consola
+ProposedCombinationView ..> Error
+ProposedCombinationView ..> Message
+
+PlayView *--> BoardView
+PlayView ..> ProposedCombination
+PlayView ..> ProposedCombinationView
+
+BoardView *--> SecretCombinationView
+BoardView ..> Consola
+BoardView ..> Message
+BoardView ..> ProposedCombinationView
+BoardView ..> ResultView
+
+YesNoDialog ..> Consola
+
+Board *--> SecretCombination
+Board o--> ProposedCombination
+Board o--> Result
+
+Combination o--> Color
+Combination <|-- ProposedCombination
+Combination <|-- SecretCombination
+
+ProposedCombination ..> Error
+
+SecretCombination ..> Color
+SecretCombination ..> ProposedCombination
+SecretCombination ..> Result
+
+@enduml
