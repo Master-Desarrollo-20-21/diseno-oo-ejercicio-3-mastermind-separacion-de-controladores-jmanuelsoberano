@@ -1,7 +1,8 @@
 @startuml
 
 abstract class MasterMinde {
-    - View _view
+    - Logic logic
+    - View view
 
     + MasterMinde()
     # abstract View CreateView(Logic logic)
@@ -19,10 +20,10 @@ package MasterMind.Models {
 
     class Board {
         - {static} int MAX_ATTEMPTS
-        - SecretCombination _secretCombination
-        - List<ProposedCombination> _proposedCombinations
-        - List<Result> _results
-        - int _attempts
+        - SecretCombination secretCombination
+        - List<ProposedCombination> proposedCombinations
+        - List<Result> results
+        - int attempts
 
         + Board()
         + void Reset()
@@ -51,8 +52,8 @@ package MasterMind.Models {
 
     class Result {
         + const int WIDTH
-        - int _blacks
-        - int _whites
+        - int blacks
+        - int whites
 
         + Result(int blacks, int whites)
         + Boolean IsWinner()
@@ -65,12 +66,20 @@ package MasterMind.Models {
         + Result GetResult(ProposedCombination proposedCombination)
     }
 
+    class State {
+        - StateValue stateValue
+        + State()
+        + void Reset()
+        + void Next()
+        + StateValue GetStateValue()
+    }
+
 }
 
 package MasterMind.Utils {
 
     class Consola {
-        - {static} readonly Consola _console
+        - {static} readonly Consola console
 
         + {static} Consola GetInstance()
         + String ReadString(String title)
@@ -88,7 +97,7 @@ package MasterMind.Utils {
         - const char NEGATIVE
         - {static} readonly string SUFFIX
         - {static} readonly string MESSAGE
-        - private char _answer
+        - private char answer
 
         + Boolean Read(String message)
         - Boolean IsAfirmative()
@@ -108,7 +117,7 @@ package MasterMind.Types {
         + {static} readonly Color ORANGE
         + {static} readonly Color PURPLE
         + {static} readonly Color NULL
-        - char _initial
+        - char initial
         - static IEnumerable<Color> Values
 
         - Color(char initial)
@@ -125,7 +134,7 @@ package MasterMind.Types {
         + {static} readonly Error WRONG_CHARACTERS
         + {static} readonly Error WRONG_LENGTH
         + {static} readonly Error NULL
-        - String _message
+        - String message
 
         - Error(String message)
         + Boolean IsNull()
@@ -141,27 +150,31 @@ package MasterMind.Types {
         + {static} readonly Message WINNER
         + {static} readonly Message LOOSER
         + {static} readonly Message SECRET
-        - string _value
+        - string value
 
         - Message(string message)
         + string ToString()
+    }
+
+    class StateValue {
+        + {static} StateValue INITIAL
+        + {static} StateValue IN_GAME
+        + {static} StateValue RESUME
+        + {static} StateValue EXIT
+        - string value
+        + {static} IEnumerable<StateValue> Values
+
+        - StateValue(String value)
+        + int Ordinal()
+        + String ToString()
     }
 
 }
 
 package MasterMind.Views {
 
-    abstract class WithLogicView {
-        # Logic logic
-        + WithLogicView(Logic logic)
-    }
-
     abstract class View {
-        + View(Logic logic)
         + void Interact()
-        # abstract void Start()
-        # abstract void Play()
-        # abstract bool IsResume()
     }
 
 }
@@ -169,52 +182,48 @@ package MasterMind.Views {
 package MasterMind.Views.Console {
 
     class ConsoleView {
-        - StartView _startView
-        - PlayView _playView
-        - ResumeView _resumeView
+        - StartView startView
+        - PlayView playView
+        - ResumeView resumeView
 
-        + ConsoleView(Logic logic)
+        + ConsoleView()
     }
 
     class StartView {
-        + StartView(Logic logic)
-        + void Interact()
+        + void Interact(StartController startController)
     }
 
     class SecretCombinationView {
-        + SecretCombinationView(Logic logic)
+        - Controller controller;
+        + SecretCombinationView(Controller controller)
         + void WriteLine()
     }
 
     class ResumeView {
-        + ResumeView(Logic logic)
-        + Boolean Interact()
+        + void Interact(ResumeController resumeController)
     }
 
     class ResultView {
-        + ResultView(Logic logic)
+        - PlayController playController
+        + ResultView(PlayController playController)
         + void WriteLine(int position)
     }
 
     class ProposedCombinationView {
-        + ProposedCombinationView(Logic logic)
+        - PlayController playController
+        + ProposedCombinationView(PlayController playController)
         + void Write(int position)
         + List<Color> Read()
     }
 
     class PlayView {
-        - BoardView _boardView
-
-        + PlayView(Logic logic)
-        + void Interact()
+        + void Interact(PlayController playController)
     }
 
     class BoardView {
-        - SecretCombinationView _secretCombinationView
-        - ProposedCombinationView _proposedCombinationView
-        - ResultView _resultView
+        - PlayController playController
 
-        + BoardView(Logic logic)
+        + BoardView(PlayController playController)
         + void Write()
     }
 
@@ -223,7 +232,7 @@ package MasterMind.Views.Console {
 package MasterMind.Views.Graphics {
 
     class GraphicsView {
-        + GraphicsView(Logic logic) )
+        + GraphicsView(Controller controller) )
     }
 
 }
@@ -231,33 +240,25 @@ package MasterMind.Views.Graphics {
 package MasterMind.Controllers {
 
     class Logic {
-        - Board _board
-        - StartController _startController
-        - PlayController _playController
-        - ResumeController _resumeController
+        - Board board
+        - State state
+        - Dictionary<StateValue, Controller> controllers
 
         + Logic()
-        + int GetWidth()
-        + int GetAttemps()
-        + bool IsWinner()
-        + int GetWhitesResult(int position)
-        + void Reset()
-        + void AddProposedCombination(List<Color> combination)
-        + bool IsFinished()
-        + int GetBlacksResult(int position)
-        + List<Color> GetColorsProposedCombination(int position)
-        + bool IsLooser()
-        + Error CheckError(string combination)
+        + Controller GetController()
     }
 
     abstract class Controller {
         # Board Board
-        + Controller(Board board)
+        # State state
+        + Controller(Board board, State state)
         + int GetWidth()
+        + void Next()
+        + abstract bool IsNull()
     }
 
     class PlayController {
-        + PlayController(Board board)
+        + PlayController(Board board, State state)
         + void AddProposedCombination(List<Color> combination)
         + int GetBlacksResult(int position)
         + int GetWhitesResult(int position)
@@ -270,35 +271,45 @@ package MasterMind.Controllers {
     }
 
     class ResumeController {
-        + ResumeController(Board board)
+        + ResumeController(Board board, State state)
         + void Reset()
     }
 
     class StartController {
-        + StartController(Board board)
+        + StartController(Board board, State state)
+    }
+
+    class NullController {
+        + NullController(Board board, State state)
     }
 
 }
 
 MasterMinde *--> View
-MasterMinde ..> Logic
+MasterMinde *--> Logic
+MasterMinde ..> Controller
 
 MasterMinde <|-- ConsoleMasterMinde
 MasterMinde <|-- GraphicsMasterMinde
 
 Logic *--> Board
-Logic *--> StartController
-Logic *--> PlayController
-Logic *--> ResumeController
-Logic ..> Color
-Logic ..> Error
+Logic *--> State
+Logic o--> Controller
+
+Logic ..> StartController
+Logic ..> PlayController
+Logic ..> ResumeController
+Logic ..> NullController
+Logic ..> StateValue
 
 Controller *--> Board
+Controller *--> State
 Controller ..> Combination
 
 Controller <|-- StartController
 Controller <|-- PlayController
 Controller <|-- ResumeController
+Controller <|-- NullController
 
 PlayController ..> Color
 PlayController ..> ProposedCombination
@@ -307,39 +318,49 @@ PlayController ..> Error
 GraphicsMasterMinde ..> GraphicsView
 ConsoleMasterMinde ..> ConsoleView
 
-WithLogicView <|-- View
-WithLogicView *--> Logic
+View ..> Controller
 
 View <|-- GraphicsView
 View <|-- ConsoleView
+
 ConsoleView *--> StartView
 ConsoleView *--> PlayView
 ConsoleView *--> ResumeView
+ConsoleView ..> StartController
+ConsoleView ..> PlayController
+ConsoleView ..> ResumeController
 
+StartView ..> StartController
 StartView ..> Consola
 StartView ..> SecretCombinationView
 StartView ..> Message
 
+SecretCombinationView *--> Controller
 SecretCombinationView ..> Consola
 SecretCombinationView ..> Message
 
+ResumeView *--> ResumeController
 ResumeView ..> YesNoDialog
 ResumeView ..> Message
 
+ResultView *--> PlayController
 ResultView ..> Consola
 ResultView ..> Message
 
+ProposedCombinationView *--> PlayController
 ProposedCombinationView ..> Color
 ProposedCombinationView ..> Consola
 ProposedCombinationView ..> Error
 ProposedCombinationView ..> Message
 
-PlayView *--> BoardView
+PlayView ..> PlayController
 PlayView ..> ProposedCombinationView
+PlayView ..> BoardView
 
-BoardView *--> SecretCombinationView
-BoardView *--> ProposedCombinationView
-BoardView *--> ResultView
+BoardView *--> PlayController
+BoardView ..> SecretCombinationView
+BoardView ..> ProposedCombinationView
+BoardView ..> ResultView
 BoardView ..> Consola
 BoardView ..> Message
 

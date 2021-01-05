@@ -1,14 +1,13 @@
-﻿using MasterMind.Controllers;
-using MasterMind.Views;
+﻿using MasterMind.Views;
 using MasterMind.Views.Console;
 
 namespace MasterMind
 {
     public class ConsoleMastermind : MasterMind
     {
-        protected override View CreateView(Logic logic)
+        protected override View CreateView()
         {
-            return new ConsoleView(logic);
+            return new ConsoleView();
         }
     }
 }

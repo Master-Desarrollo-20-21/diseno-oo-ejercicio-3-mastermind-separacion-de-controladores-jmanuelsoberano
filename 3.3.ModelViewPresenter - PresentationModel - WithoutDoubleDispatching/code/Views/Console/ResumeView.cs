@@ -5,18 +5,19 @@ using MasterMind.Utils;
 
 namespace MasterMind.Views.Console
 {
-    public class ResumeView : WithLogicView
+    public class ResumeView
     {
-        public ResumeView(Logic logic) : base(logic) {}
-
-        public Boolean Interact()
+        public void Interact(ResumeController resumeController)
         {
             Boolean isResumed = new YesNoDialog().Read(Message.RESUME.ToString());
             if (isResumed)
             {
-                this.logic.Reset();
+                resumeController.Reset();
             }
-            return isResumed;
+            else
+            {
+                resumeController.Next();
+            }
         }
     }
 }

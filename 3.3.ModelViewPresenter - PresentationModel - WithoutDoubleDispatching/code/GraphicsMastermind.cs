@@ -1,14 +1,13 @@
-﻿using MasterMind.Controllers;
-using MasterMind.Views;
+﻿using MasterMind.Views;
 using MasterMind.Views.Graphics;
 
 namespace MasterMind
 {
     public class GraphicsMastermind : MasterMind
     {
-        protected override View CreateView(Logic logic)
+        protected override View CreateView()
         {
-            return new GraphicsView(logic);
+            return new GraphicsView();
         }
     }
 }

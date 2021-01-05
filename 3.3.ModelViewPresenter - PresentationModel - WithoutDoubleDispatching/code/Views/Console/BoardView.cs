@@ -4,36 +4,32 @@ using MasterMind.Utils;
 
 namespace MasterMind.Views.Console
 {
-    public class BoardView : WithLogicView
+    public class BoardView
     {
-        private SecretCombinationView secretCombinationView;
-        private ProposedCombinationView proposedCombinationView;
-        private ResultView resultView;
+        private PlayController playController;
 
-        public BoardView(Logic logic) : base(logic)
+        public BoardView(PlayController playController)
         {
-            this.secretCombinationView = new SecretCombinationView(this.logic);
-            this.proposedCombinationView = new ProposedCombinationView(this.logic);
-            this.resultView = new ResultView(this.logic);
+            this.playController = playController;
         }
 
         public void Write()
         {
             Consola.GetInstance().WriteLine();
             Consola.GetInstance()
-                .WriteLine(Message.ATTEMPTS.ToString().Replace("#attempts", this.logic.GetAttemps().ToString()));
-            this.secretCombinationView.WriteLine();
-            for (int i = 0; i < this.logic.GetAttemps(); i++)
+                .WriteLine(Message.ATTEMPTS.ToString().Replace("#attempts", this.playController.GetAttemps().ToString()));
+            new SecretCombinationView(this.playController).WriteLine();
+            for (int i = 0; i < this.playController.GetAttemps(); i++)
             {
-                this.proposedCombinationView.Write(i);
-                this.resultView.WriteLine(i);
+                new ProposedCombinationView(this.playController).Write(i);
+                new ResultView(this.playController).WriteLine(i);
             }
 
-            if (this.logic.IsWinner())
+            if (this.playController.IsWinner())
             {
                 Consola.GetInstance().WriteLine(Message.WINNER.ToString());
             }
-            else if (this.logic.IsLooser())
+            else if (this.playController.IsLooser())
             {
                 Consola.GetInstance().WriteLine(Message.LOOSER.ToString());
             }

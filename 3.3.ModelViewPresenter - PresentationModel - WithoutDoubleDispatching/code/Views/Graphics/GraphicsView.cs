@@ -4,15 +4,11 @@ namespace MasterMind.Views.Graphics
 {
     public class GraphicsView : View
     {
-        public GraphicsView(Logic logic) : base(logic) {}
+        public GraphicsView() {}
 
-        protected override void Start() {}
-
-        protected override void Play() {}
-
-        protected override bool IsResume()
+        public override void Interact(Controller controller)
         {
-            return false;
+            throw new System.NotImplementedException();
         }
     }
 }

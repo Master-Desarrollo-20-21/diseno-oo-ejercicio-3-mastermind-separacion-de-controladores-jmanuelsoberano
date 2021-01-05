@@ -5,18 +5,28 @@ namespace MasterMind
 {
     public abstract class MasterMind
     {
+        private readonly Logic logic;
         private readonly View view;
 
         protected MasterMind()
         {
-            this.view = this.CreateView(new Logic());
+            this.logic = new Logic();
+            this.view = this.CreateView();
         }
 
-        protected abstract View CreateView(Logic logic);
+        protected abstract View CreateView();
 
         public void Play()
         {
-            this.view.Interact();
+            Controller controller;
+            do
+            {
+                controller = this.logic.GetController();
+                if (!controller.IsNull())
+                {
+                    this.view.Interact(controller);
+                }
+            } while (!controller.IsNull());
         }
     }
 }

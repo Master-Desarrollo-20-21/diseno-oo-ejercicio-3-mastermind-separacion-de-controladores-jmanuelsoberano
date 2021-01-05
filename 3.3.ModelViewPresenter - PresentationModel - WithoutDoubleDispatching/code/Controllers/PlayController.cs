@@ -6,7 +6,7 @@ namespace MasterMind.Controllers
 {
     public class PlayController : Controller
     {
-        public PlayController(Board board) : base(board) {}
+        public PlayController(Board board, State state) : base(board, state) { }
 
         public void AddProposedCombination(List<Color> combination)
         {
@@ -75,6 +75,11 @@ namespace MasterMind.Controllers
         public bool IsWinner()
         {
             return this.Board.IsWinner();
+        }
+
+        public override bool IsNull()
+        {
+            return false;
         }
     }
 }

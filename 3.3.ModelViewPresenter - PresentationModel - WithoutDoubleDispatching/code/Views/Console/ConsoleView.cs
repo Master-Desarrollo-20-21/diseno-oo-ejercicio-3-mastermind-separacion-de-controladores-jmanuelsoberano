@@ -8,26 +8,27 @@ namespace MasterMind.Views.Console
         private PlayView playView;
         private ResumeView resumeView;
 
-        public ConsoleView(Logic logic) : base(logic)
+        public ConsoleView()
         {
-            this.startView = new StartView(this.logic);
-            this.playView = new PlayView(this.logic);
-            this.resumeView = new ResumeView(this.logic);
+            this.startView = new StartView();
+            this.playView = new PlayView();
+            this.resumeView = new ResumeView();
         }
 
-        protected override void Start()
+        public override void Interact(Controller controller)
         {
-            this.startView.Interact();
-        }
-
-        protected override void Play()
-        {
-            this.playView.Interact();
-        }
-
-        protected override bool IsResume()
-        {
-            return this.resumeView.Interact();
+            if (controller.GetType() == typeof(StartController))
+            {
+                this.startView.Interact((StartController) controller);
+            } 
+            else if (controller.GetType() == typeof(PlayController))
+            {
+                this.playView.Interact((PlayController) controller);
+            }
+            else
+            {
+                this.resumeView.Interact((ResumeController) controller);
+            }
         }
     }
 }

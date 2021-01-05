@@ -2,23 +2,18 @@
 
 namespace MasterMind.Views.Console
 {
-    public class PlayView : WithLogicView
+    public class PlayView
     {
-        private BoardView boardView;
-
-        public PlayView(Logic logic) : base(logic) 
-        {
-            this.boardView = new BoardView(this.logic);
-        }
-
-        public void Interact()
+        public void Interact(PlayController playController)
         {
             do
             {
-                ProposedCombinationView proposedCombinationView = new ProposedCombinationView(this.logic);
-                this.logic.AddProposedCombination(proposedCombinationView.Read());
-                this.boardView.Write();
-            } while (!this.logic.IsFinished());
+                ProposedCombinationView proposedCombinationView = new ProposedCombinationView(playController);
+                playController.AddProposedCombination(proposedCombinationView.Read());
+                new BoardView(playController).Write();
+            } while (!playController.IsFinished());
+
+            playController.Next();
         }
     }
 }
