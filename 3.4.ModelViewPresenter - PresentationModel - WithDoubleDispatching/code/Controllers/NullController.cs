@@ -4,7 +4,10 @@ namespace MasterMind.Controllers
 {
     public class NullController : Controller
     {
-        public NullController(Board board, State state) : base(board, state) { }
+        public NullController(Board board, State state) : base(board, state)
+        {
+        }
+
         public override bool IsNull()
         {
             return true;

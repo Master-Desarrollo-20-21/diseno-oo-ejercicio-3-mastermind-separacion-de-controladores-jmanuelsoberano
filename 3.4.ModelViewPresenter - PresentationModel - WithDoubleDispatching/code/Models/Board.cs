@@ -6,7 +6,7 @@ namespace MasterMind.Models
 {
     public class Board
     {
-        private static readonly int MAX_ATTEMPTS = 10;
+        private const int MAX_ATTEMPTS = 10;
         private SecretCombination secretCombination;
         private List<ProposedCombination> proposedCombinations;
         private List<Result> results;
@@ -66,6 +66,5 @@ namespace MasterMind.Models
 
             return this.proposedCombinations[position];
         }
-
     }
 }

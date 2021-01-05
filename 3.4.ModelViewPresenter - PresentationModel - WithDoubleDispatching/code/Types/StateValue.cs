@@ -40,6 +40,5 @@ namespace MasterMind.Types
         {
             return this.value;
         }
-
     }
 }

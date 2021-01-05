@@ -4,7 +4,9 @@ namespace MasterMind.Views.Graphics
 {
     public class GraphicsView : View
     {
-        public GraphicsView() {}
+        public GraphicsView()
+        {
+        }
 
         public override void visit(StartController startController)
         {

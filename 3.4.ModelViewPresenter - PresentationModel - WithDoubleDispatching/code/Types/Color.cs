@@ -42,6 +42,7 @@ namespace MasterMind.Types
             {
                 result += Color.Get(i).initial;
             }
+
             return result;
         }
 
@@ -54,6 +55,7 @@ namespace MasterMind.Types
                     return Color.Get(i);
                 }
             }
+
             return Color.NULL;
         }
 

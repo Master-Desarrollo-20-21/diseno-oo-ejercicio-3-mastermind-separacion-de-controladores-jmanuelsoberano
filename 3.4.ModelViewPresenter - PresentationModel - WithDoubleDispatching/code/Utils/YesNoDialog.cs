@@ -11,8 +11,9 @@ namespace MasterMind.Utils
         private static readonly string SUFFIX = "? (" +
                                                 AFFIRMATIVE + "/" +
                                                 NEGATIVE + "): ";
-        private static readonly string MESSAGE = "The value must be '" + 
-                                                 AFFIRMATIVE + "' or '" + 
+
+        private static readonly string MESSAGE = "The value must be '" +
+                                                 AFFIRMATIVE + "' or '" +
                                                  NEGATIVE + "'";
 
         private char answer;
@@ -33,6 +34,7 @@ namespace MasterMind.Utils
                     console.WriteLine(YesNoDialog.MESSAGE);
                 }
             } while (error);
+
             return this.IsAfirmative();
         }
 
@@ -50,5 +52,5 @@ namespace MasterMind.Utils
         {
             return char.ToLower(this.answer) == YesNoDialog.NEGATIVE;
         }
-	}
+    }
 }

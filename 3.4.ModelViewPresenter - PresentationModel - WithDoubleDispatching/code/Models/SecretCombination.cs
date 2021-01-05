@@ -12,12 +12,14 @@ namespace MasterMind.Models
             {
                 this.Colors.Add(Color.Get(i));
             }
+
             Random random = new Random(DateTime.Now.Millisecond);
             for (int i = 0; i < Color.Length() - Result.WIDTH; i++)
             {
                 Color colorRemove = this.Colors[random.Next(this.Colors.Count)];
                 this.Colors.Remove(colorRemove);
             }
+
             this.Colors = this.Colors.OrderBy(x => Guid.NewGuid()).ToList();
         }
 
@@ -30,11 +32,13 @@ namespace MasterMind.Models
                 if (proposedCombination.Contains(this.Colors[i], i))
                 {
                     blacks++;
-                } else if (proposedCombination.Contains(this.Colors[i]))
+                }
+                else if (proposedCombination.Contains(this.Colors[i]))
                 {
                     whites++;
                 }
             }
+
             return new Result(blacks, whites);
         }
     }

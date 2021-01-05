@@ -48,6 +48,7 @@ namespace MasterMind.Utils
                 {
                 }
             } while (!ok);
+
             return input;
         }
 
@@ -67,6 +68,7 @@ namespace MasterMind.Utils
                     ok = true;
                 }
             } while (!ok);
+
             return charValue;
         }
 
@@ -89,7 +91,5 @@ namespace MasterMind.Utils
         {
             System.Console.Write(character);
         }
-
     }
-
 }

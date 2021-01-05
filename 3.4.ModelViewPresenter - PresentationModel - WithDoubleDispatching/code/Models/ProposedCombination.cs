@@ -9,7 +9,7 @@ namespace MasterMind.Models
     {
         public Boolean Contains(Color color, int position)
         {
-            Debug.Assert(position< this.Colors.Count);
+            Debug.Assert(position < this.Colors.Count);
 
             return this.Colors[position] == color;
         }

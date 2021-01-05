@@ -12,6 +12,9 @@ namespace MasterMind.Views
         public abstract void visit(StartController startController);
         public abstract void visit(PlayController playController);
         public abstract void visit(ResumeController resumeController);
-        public void visit(NullController nullController) {}
+
+        public void visit(NullController nullController)
+        {
+        }
     }
 }

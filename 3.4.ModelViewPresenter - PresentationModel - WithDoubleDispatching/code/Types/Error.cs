@@ -25,6 +25,5 @@ namespace MasterMind.Types
         {
             return this.message;
         }
-
     }
 }

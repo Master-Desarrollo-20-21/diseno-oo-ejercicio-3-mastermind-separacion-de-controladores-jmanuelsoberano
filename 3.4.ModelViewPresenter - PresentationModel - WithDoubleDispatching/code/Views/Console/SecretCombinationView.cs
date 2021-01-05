@@ -19,6 +19,7 @@ namespace MasterMind.Views.Console
             {
                 Consola.GetInstance().Write(Message.SECRET.ToString());
             }
+
             Consola.GetInstance().WriteLine();
         }
     }

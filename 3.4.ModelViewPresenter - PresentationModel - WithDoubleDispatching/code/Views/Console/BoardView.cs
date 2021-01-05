@@ -17,7 +17,8 @@ namespace MasterMind.Views.Console
         {
             Consola.GetInstance().WriteLine();
             Consola.GetInstance()
-                .WriteLine(Message.ATTEMPTS.ToString().Replace("#attempts", this.playController.GetAttemps().ToString()));
+                .WriteLine(
+                    Message.ATTEMPTS.ToString().Replace("#attempts", this.playController.GetAttemps().ToString()));
             new SecretCombinationView(this.playController).WriteLine();
             for (int i = 0; i < this.playController.GetAttemps(); i++)
             {

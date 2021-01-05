@@ -6,12 +6,12 @@ namespace MasterMind.Controllers
 {
     public interface ControllersVisitor
     {
-        public void visit(StartController startController);
+        void visit(StartController startController);
 
-        public void visit(PlayController playController);
+        void visit(PlayController playController);
 
-        public void visit(ResumeController resumeController);
+        void visit(ResumeController resumeController);
 
-        public void visit(NullController nullController);
+        void visit(NullController nullController);
     }
 }

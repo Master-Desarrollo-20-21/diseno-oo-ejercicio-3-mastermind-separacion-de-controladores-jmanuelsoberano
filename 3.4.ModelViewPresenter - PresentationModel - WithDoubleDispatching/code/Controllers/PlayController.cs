@@ -6,7 +6,9 @@ namespace MasterMind.Controllers
 {
     public class PlayController : Controller
     {
-        public PlayController(Board board, State state) : base(board, state) { }
+        public PlayController(Board board, State state) : base(board, state)
+        {
+        }
 
         public void AddProposedCombination(List<Color> combination)
         {
@@ -55,6 +57,7 @@ namespace MasterMind.Controllers
                 {
                     return Error.WRONG_CHARACTERS;
                 }
+
                 for (int j = 0; j < i; j++)
                 {
                     if (colors[j] == color)
@@ -62,8 +65,10 @@ namespace MasterMind.Controllers
                         return Error.DUPLICATED;
                     }
                 }
+
                 colors.Add(color);
             }
+
             return Error.NULL;
         }
 

@@ -18,5 +18,4 @@ namespace MasterMind.Controllers
             controllersVisitor.visit(this);
         }
     }
-
 }

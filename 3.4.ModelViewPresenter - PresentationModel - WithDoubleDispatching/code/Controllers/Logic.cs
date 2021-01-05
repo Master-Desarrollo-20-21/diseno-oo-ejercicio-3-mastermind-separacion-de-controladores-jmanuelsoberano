@@ -17,10 +17,10 @@ namespace MasterMind.Controllers
             this.board = new Board();
             this.controllers = new Dictionary<StateValue, Controller>()
             {
-                { StateValue.INITIAL, new StartController(this.board, this.state) },
-                { StateValue.IN_GAME, new PlayController(this.board, this.state) },
-                { StateValue.RESUME, new ResumeController(this.board, this.state) },
-                { StateValue.EXIT, new NullController(this.board, this.state) },
+                {StateValue.INITIAL, new StartController(this.board, this.state)},
+                {StateValue.IN_GAME, new PlayController(this.board, this.state)},
+                {StateValue.RESUME, new ResumeController(this.board, this.state)},
+                {StateValue.EXIT, new NullController(this.board, this.state)},
             };
         }
 

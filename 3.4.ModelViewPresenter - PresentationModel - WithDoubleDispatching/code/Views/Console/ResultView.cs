@@ -15,7 +15,9 @@ namespace MasterMind.Views.Console
 
         public void WriteLine(int position)
         {
-            Consola.GetInstance().WriteLine(Message.RESULT.ToString().Replace("#blacks", this.playController.GetBlacksResult(position).ToString()).Replace("#whites", "" + this.playController.GetWhitesResult(position).ToString()));
+            Consola.GetInstance().WriteLine(Message.RESULT.ToString()
+                .Replace("#blacks", this.playController.GetBlacksResult(position).ToString()).Replace("#whites",
+                    "" + this.playController.GetWhitesResult(position).ToString()));
         }
     }
 }

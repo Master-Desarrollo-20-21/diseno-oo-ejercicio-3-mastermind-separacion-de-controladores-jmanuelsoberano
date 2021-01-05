@@ -38,9 +38,8 @@ namespace MasterMind.Views.Console
                     colors.AddRange(combination.Select(Color.GetInstance));
                 }
             } while (!error.IsNull());
-            
-            return colors; 
-        }
 
+            return colors;
+        }
     }
 }

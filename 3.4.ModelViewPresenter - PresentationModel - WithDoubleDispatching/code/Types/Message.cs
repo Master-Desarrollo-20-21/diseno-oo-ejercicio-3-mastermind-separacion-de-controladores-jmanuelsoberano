@@ -1,6 +1,5 @@
 ﻿namespace MasterMind.Types
 {
-
     public class Message
     {
         public static readonly Message ATTEMPTS = new Message("#attempts attempt(s): ");
@@ -23,6 +22,5 @@
         {
             return value;
         }
-
     }
 }

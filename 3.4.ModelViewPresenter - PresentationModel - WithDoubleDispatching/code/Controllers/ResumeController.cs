@@ -4,7 +4,9 @@ namespace MasterMind.Controllers
 {
     public class ResumeController : Controller
     {
-        public ResumeController(Board board, State state) : base(board, state) { }
+        public ResumeController(Board board, State state) : base(board, state)
+        {
+        }
 
         public void Reset()
         {

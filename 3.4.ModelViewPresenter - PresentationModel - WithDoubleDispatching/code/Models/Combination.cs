@@ -12,6 +12,7 @@ namespace MasterMind.Models
         {
             this.Colors = new List<Color>();
         }
+
         public static int GetWidth()
         {
             return Combination.WIDTH;
