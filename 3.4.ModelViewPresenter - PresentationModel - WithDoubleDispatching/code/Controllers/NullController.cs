@@ -9,5 +9,10 @@ namespace MasterMind.Controllers
         {
             return true;
         }
+
+        public override void accept(ControllersVisitor controllersVisitor)
+        {
+            controllersVisitor.visit(this);
+        }
     }
 }

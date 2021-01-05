@@ -25,5 +25,6 @@ namespace MasterMind.Controllers
 
         public abstract bool IsNull();
 
+        public abstract void accept(ControllersVisitor controllersVisitor);
     }
 }

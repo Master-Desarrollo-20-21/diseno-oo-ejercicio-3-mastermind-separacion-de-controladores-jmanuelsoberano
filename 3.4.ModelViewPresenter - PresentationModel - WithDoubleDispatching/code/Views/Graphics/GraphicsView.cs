@@ -6,7 +6,17 @@ namespace MasterMind.Views.Graphics
     {
         public GraphicsView() {}
 
-        public override void Interact(Controller controller)
+        public override void visit(StartController startController)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void visit(PlayController playController)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void visit(ResumeController resumeController)
         {
             throw new System.NotImplementedException();
         }

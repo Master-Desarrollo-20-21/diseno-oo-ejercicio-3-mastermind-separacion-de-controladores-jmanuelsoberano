@@ -15,20 +15,19 @@ namespace MasterMind.Views.Console
             this.resumeView = new ResumeView();
         }
 
-        public override void Interact(Controller controller)
+        public override void visit(StartController startController)
         {
-            if (controller.GetType() == typeof(StartController))
-            {
-                this.startView.Interact((StartController) controller);
-            } 
-            else if (controller.GetType() == typeof(PlayController))
-            {
-                this.playView.Interact((PlayController) controller);
-            }
-            else
-            {
-                this.resumeView.Interact((ResumeController) controller);
-            }
+            this.startView.Interact(startController);
+        }
+
+        public override void visit(PlayController playController)
+        {
+            this.playView.Interact(playController);
+        }
+
+        public override void visit(ResumeController resumeController)
+        {
+            this.resumeView.Interact(resumeController);
         }
     }
 }

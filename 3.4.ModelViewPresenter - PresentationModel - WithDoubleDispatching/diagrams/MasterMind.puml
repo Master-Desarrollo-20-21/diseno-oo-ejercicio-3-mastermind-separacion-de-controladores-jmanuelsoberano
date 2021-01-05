@@ -248,6 +248,13 @@ package MasterMind.Controllers {
         + Controller GetController()
     }
 
+    interface ControllersVisitor {
+        + void visit(StartController startController)
+        + void visit(PlayController playController)
+        + void visit(ResumeController resumeController)
+        + void visit(NullController nullController)
+    }
+
     abstract class Controller {
         # Board Board
         # State state
@@ -255,6 +262,7 @@ package MasterMind.Controllers {
         + int GetWidth()
         + void Next()
         + abstract bool IsNull()
+        + abstract void accept(ControllersVisitor controllersVisitor)
     }
 
     class PlayController {
@@ -296,6 +304,8 @@ Logic *--> Board
 Logic *--> State
 Logic o--> Controller
 
+ControllersVisitor <|-- View
+
 Logic ..> StartController
 Logic ..> PlayController
 Logic ..> ResumeController
@@ -305,6 +315,7 @@ Logic ..> StateValue
 Controller *--> Board
 Controller *--> State
 Controller ..> Combination
+Controller ..> ControllersVisitor
 
 Controller <|-- StartController
 Controller <|-- PlayController
