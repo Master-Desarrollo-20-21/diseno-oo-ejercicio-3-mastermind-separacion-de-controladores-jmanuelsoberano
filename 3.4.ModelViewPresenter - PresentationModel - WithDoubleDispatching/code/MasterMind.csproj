@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <configuration>
+      <system.diagnostics>
+        <assert assertuienabled="true" logfilename="c:\\temp\\myFile.log" />
+      </system.diagnostics>
+    </configuration>
+  </PropertyGroup>
+
+</Project>
