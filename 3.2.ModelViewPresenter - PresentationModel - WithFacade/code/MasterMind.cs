@@ -1,5 +1,4 @@
 ﻿using MasterMind.Controllers;
-using MasterMind.Models;
 using MasterMind.Views;
 
 namespace MasterMind
@@ -10,11 +9,10 @@ namespace MasterMind
 
         protected MasterMind()
         {
-            Board board = new Board();
-            this._view = this.CreateView(new StartController(board), new PlayController(board), new ResumeController(board));
+            this._view = this.CreateView(new Logic());
         }
 
-        protected abstract View CreateView(StartController startController, PlayController playController, ResumeController resumeController);
+        protected abstract View CreateView(Logic logic);
 
         public void Play()
         {

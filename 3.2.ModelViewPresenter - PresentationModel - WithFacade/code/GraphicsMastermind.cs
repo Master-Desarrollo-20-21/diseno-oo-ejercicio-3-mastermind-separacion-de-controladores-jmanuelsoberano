@@ -6,9 +6,9 @@ namespace MasterMind
 {
     public class GraphicsMastermind : MasterMind
     {
-        protected override View CreateView(StartController startController, PlayController playController, ResumeController resumeController)
+        protected override View CreateView(Logic logic)
         {
-            return new GraphicsView(startController, playController, resumeController);
+            return new GraphicsView(logic);
         }
     }
 }

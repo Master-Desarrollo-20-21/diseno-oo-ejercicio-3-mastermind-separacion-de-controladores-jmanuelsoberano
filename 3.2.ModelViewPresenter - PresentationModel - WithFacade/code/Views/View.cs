@@ -2,18 +2,9 @@
 
 namespace MasterMind.Views
 {
-    public abstract class View
+    public abstract class View : WithLogicView
     {
-        protected StartController StartController;
-        protected PlayController PlayController;
-        protected ResumeController ResumeController;
-
-        public View(StartController startController, PlayController playController, ResumeController resumeController)
-        {
-            this.StartController = startController;
-            this.PlayController = playController;
-            this.ResumeController = resumeController;
-        }
+        public View(Logic logic) : base(logic) {}
 
         public void Interact()
         {

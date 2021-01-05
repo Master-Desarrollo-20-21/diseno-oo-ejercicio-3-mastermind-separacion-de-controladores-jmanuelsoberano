@@ -4,38 +4,36 @@ using MasterMind.Utils;
 
 namespace MasterMind.Views.Console
 {
-    public class BoardView
+    public class BoardView : WithLogicView
     {
-        private PlayController _playController;
         private SecretCombinationView _secretCombinationView;
         private ProposedCombinationView _proposedCombinationView;
         private ResultView _resultView;
 
-        public BoardView(PlayController playController)
+        public BoardView(Logic logic) : base(logic)
         {
-            this._playController = playController;
-            this._secretCombinationView = new SecretCombinationView(this._playController);
-            this._proposedCombinationView = new ProposedCombinationView(this._playController);
-            this._resultView = new ResultView(this._playController);
+            this._secretCombinationView = new SecretCombinationView(this._logic);
+            this._proposedCombinationView = new ProposedCombinationView(this._logic);
+            this._resultView = new ResultView(this._logic);
         }
 
         public void Write()
         {
             Consola.GetInstance().WriteLine();
             Consola.GetInstance()
-                .WriteLine(Message.ATTEMPTS.ToString().Replace("#attempts", this._playController.GetAttemps().ToString()));
+                .WriteLine(Message.ATTEMPTS.ToString().Replace("#attempts", this._logic.GetAttemps().ToString()));
             this._secretCombinationView.WriteLine();
-            for (int i = 0; i < this._playController.GetAttemps(); i++)
+            for (int i = 0; i < this._logic.GetAttemps(); i++)
             {
                 this._proposedCombinationView.Write(i);
                 this._resultView.WriteLine(i);
             }
 
-            if (this._playController.IsWinner())
+            if (this._logic.IsWinner())
             {
                 Consola.GetInstance().WriteLine(Message.WINNER.ToString());
             }
-            else if (this._playController.IsLooser())
+            else if (this._logic.IsLooser())
             {
                 Consola.GetInstance().WriteLine(Message.LOOSER.ToString());
             }

@@ -4,19 +4,14 @@ using MasterMind.Utils;
 
 namespace MasterMind.Views.Console
 {
-    public class StartView
+    public class StartView : WithLogicView
     {
-        private StartController _startController;
-
-        public StartView(StartController startController)
-        {
-            this._startController = startController;
-        }
+        public StartView(Logic logic) : base(logic) {}
 
         public void Interact()
         {
             Consola.GetInstance().WriteLine(Message.TITLE.ToString());
-            new SecretCombinationView(this._startController).WriteLine();
+            new SecretCombinationView(this._logic).WriteLine();
         }
     }
 }

@@ -6,9 +6,9 @@ namespace MasterMind
 {
     public class ConsoleMastermind : MasterMind
     {
-        protected override View CreateView(StartController startController, PlayController playController, ResumeController resumeController)
+        protected override View CreateView(Logic logic)
         {
-            return new ConsoleView(startController, playController, resumeController);
+            return new ConsoleView(logic);
         }
     }
 }

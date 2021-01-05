@@ -4,18 +4,13 @@ using MasterMind.Utils;
 
 namespace MasterMind.Views.Console
 {
-    public class ResultView
+    public class ResultView : WithLogicView
     {
-        private PlayController _playController;
-
-        public ResultView(PlayController playController)
-        {
-            this._playController = playController;
-        }
+        public ResultView(Logic logic) : base(logic) {}
 
         public void WriteLine(int position)
         {
-            Consola.GetInstance().WriteLine(Message.RESULT.ToString().Replace("#blacks", this._playController.GetBlacksResult(position).ToString()).Replace("#whites", "" + this._playController.GetWhitesResult(position).ToString()));
+            Consola.GetInstance().WriteLine(Message.RESULT.ToString().Replace("#blacks", this._logic.GetBlacksResult(position).ToString()).Replace("#whites", "" + this._logic.GetWhitesResult(position).ToString()));
         }
     }
 }

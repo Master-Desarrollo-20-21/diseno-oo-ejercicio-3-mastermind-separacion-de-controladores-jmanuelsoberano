@@ -4,18 +4,13 @@ using MasterMind.Utils;
 
 namespace MasterMind.Views.Console
 {
-    public class SecretCombinationView
+    public class SecretCombinationView : WithLogicView
     {
-        private Controller _controllers;
-
-        public SecretCombinationView(Controller controller)
-        {
-            this._controllers = controller;
-        }
+        public SecretCombinationView(Logic logic) : base(logic) {}
 
         public void WriteLine()
         {
-            for (int i = 0; i < this._controllers.GetWidth(); i++)
+            for (int i = 0; i < this._logic.GetWidth(); i++)
             {
                 Consola.GetInstance().Write(Message.SECRET.ToString());
             }

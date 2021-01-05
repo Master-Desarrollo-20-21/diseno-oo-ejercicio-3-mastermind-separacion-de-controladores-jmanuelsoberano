@@ -282,6 +282,10 @@ MasterMinde <|-- GraphicsMasterMinde
 Controller *--> Board
 Controller ..> Combination
 
+Controller <|-- StartController
+Controller <|-- PlayController
+Controller <|-- ResumeController
+
 PlayController ..> Color
 PlayController ..> ProposedCombination
 PlayController ..> Error

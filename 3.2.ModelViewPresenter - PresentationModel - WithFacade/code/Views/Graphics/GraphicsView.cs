@@ -4,7 +4,7 @@ namespace MasterMind.Views.Graphics
 {
     public class GraphicsView : View
     {
-        public GraphicsView(StartController startController, PlayController playController, ResumeController resumeController) : base(startController, playController, resumeController) {}
+        public GraphicsView(Logic logic) : base(logic) {}
 
         protected override void Start() {}
 

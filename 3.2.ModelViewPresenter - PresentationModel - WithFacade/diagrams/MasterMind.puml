@@ -4,7 +4,7 @@ abstract class MasterMinde {
     - View _view
 
     + MasterMinde()
-    # abstract View CreateView(StartController startController, PlayController playController, ResumeController resumeController)
+    # abstract View CreateView(Logic logic)
     + void Play()
 }
 
@@ -151,11 +151,13 @@ package MasterMind.Types {
 
 package MasterMind.Views {
 
+    abstract class WithLogicView {
+        # Logic logic
+        + WithLogicView(Logic logic)
+    }
+
     abstract class View {
-        # StartController StartController
-        # PlayController PlayController
-        # ResumeController ResumeController
-        + View(StartController startController, PlayController playController, ResumeController resumeController)
+        + View(Logic logic)
         + void Interact()
         # abstract void Start()
         # abstract void Play()
@@ -171,60 +173,48 @@ package MasterMind.Views.Console {
         - PlayView _playView
         - ResumeView _resumeView
 
-        + ConsoleView(StartController startController, PlayController playController, ResumeController resumeController)
+        + ConsoleView(Logic logic)
     }
 
     class StartView {
-        - StartController _startController
-
-        + StartView(StartController startController)
+        + StartView(Logic logic)
         + void Interact()
     }
 
     class SecretCombinationView {
-        - Controller _controllers
-
-        + SecretCombinationView(Controller controller)
+        + SecretCombinationView(Logic logic)
         + void WriteLine()
     }
 
     class ResumeView {
-        - ResumeController _resumeController
-
-        + ResumeView(ResumeController resumeController)
+        + ResumeView(Logic logic)
         + Boolean Interact()
     }
 
     class ResultView {
-        - PlayController _playController
-
-        + ResultView(PlayController playController)
+        + ResultView(Logic logic)
         + void WriteLine(int position)
     }
 
     class ProposedCombinationView {
-        - PlayController _playController
-
-        + ProposedCombinationView(PlayController playController)
+        + ProposedCombinationView(Logic logic)
         + void Write(int position)
         + List<Color> Read()
     }
 
     class PlayView {
         - BoardView _boardView
-        - PlayController _playController
 
-        + PlayView(PlayController playController)
+        + PlayView(Logic logic)
         + void Interact()
     }
 
     class BoardView {
-        - PlayController _playController
         - SecretCombinationView _secretCombinationView
         - ProposedCombinationView _proposedCombinationView
         - ResultView _resultView
 
-        + BoardView(PlayController playController)
+        + BoardView(Logic logic)
         + void Write()
     }
 
@@ -233,12 +223,32 @@ package MasterMind.Views.Console {
 package MasterMind.Views.Graphics {
 
     class GraphicsView {
-        + GraphicsView(StartController startController, PlayController playController, ResumeController resumeController) )
+        + GraphicsView(Logic logic) )
     }
 
 }
 
-package MasterMind.Views.Controllers {
+package MasterMind.Controllers {
+
+    class Logic {
+        - Board _board
+        - StartController _startController
+        - PlayController _playController
+        - ResumeController _resumeController
+
+        + Logic()
+        + int GetWidth()
+        + int GetAttemps()
+        + bool IsWinner()
+        + int GetWhitesResult(int position)
+        + void Reset()
+        + void AddProposedCombination(List<Color> combination)
+        + bool IsFinished()
+        + int GetBlacksResult(int position)
+        + List<Color> GetColorsProposedCombination(int position)
+        + bool IsLooser()
+        + Error CheckError(string combination)
+    }
 
     abstract class Controller {
         # Board Board
@@ -271,16 +281,24 @@ package MasterMind.Views.Controllers {
 }
 
 MasterMinde *--> View
-MasterMinde ..> Board
-MasterMinde ..> StartController
-MasterMinde ..> PlayController
-MasterMinde ..> ResumeController
+MasterMinde ..> Logic
 
 MasterMinde <|-- ConsoleMasterMinde
 MasterMinde <|-- GraphicsMasterMinde
 
+Logic *--> Board
+Logic *--> StartController
+Logic *--> PlayController
+Logic *--> ResumeController
+Logic ..> Color
+Logic ..> Error
+
 Controller *--> Board
 Controller ..> Combination
+
+Controller <|-- StartController
+Controller <|-- PlayController
+Controller <|-- ResumeController
 
 PlayController ..> Color
 PlayController ..> ProposedCombination
@@ -289,9 +307,8 @@ PlayController ..> Error
 GraphicsMasterMinde ..> GraphicsView
 ConsoleMasterMinde ..> ConsoleView
 
-View *--> StartController
-View *--> PlayController
-View *--> ResumeController
+WithLogicView <|-- View
+WithLogicView *--> Logic
 
 View <|-- GraphicsView
 View <|-- ConsoleView
@@ -299,34 +316,27 @@ ConsoleView *--> StartView
 ConsoleView *--> PlayView
 ConsoleView *--> ResumeView
 
-StartView *--> StartController
 StartView ..> Consola
 StartView ..> SecretCombinationView
 StartView ..> Message
 
-SecretCombinationView *--> Controller
 SecretCombinationView ..> Consola
 SecretCombinationView ..> Message
 
-ResumeView *--> ResumeController
 ResumeView ..> YesNoDialog
 ResumeView ..> Message
 
-ResultView *--> PlayController
 ResultView ..> Consola
 ResultView ..> Message
 
-ProposedCombinationView *--> PlayController
 ProposedCombinationView ..> Color
 ProposedCombinationView ..> Consola
 ProposedCombinationView ..> Error
 ProposedCombinationView ..> Message
 
 PlayView *--> BoardView
-PlayView *--> PlayController
 PlayView ..> ProposedCombinationView
 
-BoardView *--> PlayController
 BoardView *--> SecretCombinationView
 BoardView *--> ProposedCombinationView
 BoardView *--> ResultView

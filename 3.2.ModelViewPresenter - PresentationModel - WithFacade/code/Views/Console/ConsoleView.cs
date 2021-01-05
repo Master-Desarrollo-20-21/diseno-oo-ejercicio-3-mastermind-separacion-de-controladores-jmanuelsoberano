@@ -8,11 +8,11 @@ namespace MasterMind.Views.Console
         private PlayView _playView;
         private ResumeView _resumeView;
 
-        public ConsoleView(StartController startController, PlayController playController, ResumeController resumeController) : base(startController, playController, resumeController)
+        public ConsoleView(Logic logic) : base(logic)
         {
-            this._startView = new StartView(this.StartController);
-            this._playView = new PlayView(this.PlayController);
-            this._resumeView = new ResumeView(this.ResumeController);
+            this._startView = new StartView(this._logic);
+            this._playView = new PlayView(this._logic);
+            this._resumeView = new ResumeView(this._logic);
         }
 
         protected override void Start()

@@ -7,18 +7,13 @@ using MasterMind.Types;
 
 namespace MasterMind.Views.Console
 {
-    public class ProposedCombinationView
+    public class ProposedCombinationView : WithLogicView
     {
-        private PlayController _playController;
-
-        public ProposedCombinationView(PlayController playController)
-        {
-            this._playController = playController;
-        }
+        public ProposedCombinationView(Logic logic) : base(logic) {}
 
         public void Write(int position)
         {
-            foreach (Color color in this._playController.GetColorsProposedCombination(position))
+            foreach (Color color in this._logic.GetColorsProposedCombination(position))
             {
                 Consola.GetInstance().Write(color.ToString());
             }
@@ -31,7 +26,7 @@ namespace MasterMind.Views.Console
             do
             {
                 String combination = Consola.GetInstance().ReadString(Message.PROPOSED_COMBINATION.ToString());
-                error = this._playController.CheckError(combination);
+                error = this._logic.CheckError(combination);
                 Consola.GetInstance().WriteLine(error.ToString());
                 if (error.IsNull())
                 {
