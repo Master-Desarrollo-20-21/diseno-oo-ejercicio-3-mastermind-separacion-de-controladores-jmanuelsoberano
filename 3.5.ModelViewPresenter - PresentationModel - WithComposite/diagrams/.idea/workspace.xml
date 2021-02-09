@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dfe65e58-ecb6-438f-9b8b-c0e26cd54770" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="UML Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1mJDMtOJSEqmsLx7lVw2TTh6gUH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MasterMind.png" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dfe65e58-ecb6-438f-9b8b-c0e26cd54770" name="Default Changelist" comment="" />
+      <created>1609202756103</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609202756103</updated>
+      <workItem from="1609202757386" duration="10212000" />
+      <workItem from="1609304919877" duration="132000" />
+      <workItem from="1609305088967" duration="580000" />
+      <workItem from="1609652641502" duration="827000" />
+      <workItem from="1609653482176" duration="5374000" />
+      <workItem from="1609720766883" duration="600000" />
+      <workItem from="1609733705430" duration="1389000" />
+      <workItem from="1609736507968" duration="824000" />
+      <workItem from="1609737440954" duration="13000" />
+      <workItem from="1609814891040" duration="3390000" />
+      <workItem from="1609824988142" duration="2602000" />
+      <workItem from="1609870400284" duration="3662000" />
+      <workItem from="1609878849659" duration="1248000" />
+      <workItem from="1609950361125" duration="12000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add Diagram and Modify Program">
+      <created>1609221441276</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609221441276</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add Diagram and Modify Program" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Diagram and Modify Program" />
+  </component>
+</project>

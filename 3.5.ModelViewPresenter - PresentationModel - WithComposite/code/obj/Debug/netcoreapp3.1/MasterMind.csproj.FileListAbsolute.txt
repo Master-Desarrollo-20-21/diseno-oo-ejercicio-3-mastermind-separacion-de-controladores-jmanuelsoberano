@@ -1,0 +1,63 @@
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\bin\Debug\netcoreapp3.1\MasterMind.exe
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\bin\Debug\netcoreapp3.1\MasterMind.deps.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.dev.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\bin\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\bin\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\obj\Debug\netcoreapp3.1\MasterMind.csprojAssemblyReference.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfoInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfo.cs
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\obj\Debug\netcoreapp3.1\MasterMind.csproj.CoreCompileInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\obj\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\obj\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\2.DocumentView - WithFactoryMethod\code\obj\Debug\netcoreapp3.1\MasterMind.genruntimeconfig.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfoInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfo.cs
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\obj\Debug\netcoreapp3.1\MasterMind.csproj.CoreCompileInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\obj\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\obj\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\bin\Debug\netcoreapp3.1\MasterMind.exe
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\bin\Debug\netcoreapp3.1\MasterMind.deps.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.dev.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\bin\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\bin\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\obj\Debug\netcoreapp3.1\MasterMind.genruntimeconfig.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.1.ModelViewPresenter - PresentationModel - Basic\code\obj\Debug\netcoreapp3.1\MasterMind.csprojAssemblyReference.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfoInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfo.cs
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\obj\Debug\netcoreapp3.1\MasterMind.csproj.CoreCompileInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\obj\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\obj\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\bin\Debug\netcoreapp3.1\MasterMind.exe
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\bin\Debug\netcoreapp3.1\MasterMind.deps.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.dev.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\bin\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\bin\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.2.ModelViewPresenter - PresentationModel - WithFacade\code\obj\Debug\netcoreapp3.1\MasterMind.genruntimeconfig.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfoInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfo.cs
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.csproj.CoreCompileInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.exe
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.deps.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.dev.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.genruntimeconfig.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.3.ModelViewPresenter - PresentationModel - WithoutDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.csprojAssemblyReference.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfoInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.AssemblyInfo.cs
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.csproj.CoreCompileInputs.cache
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.exe
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.deps.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.runtimeconfig.dev.json
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.dll
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\bin\Debug\netcoreapp3.1\MasterMind.pdb
+C:\temp\diseno-oo-ejercicio-3-mastermind-separacion-de-controladores-jmanuelsoberano\3.4.ModelViewPresenter - PresentationModel - WithDoubleDispatching\code\obj\Debug\netcoreapp3.1\MasterMind.genruntimeconfig.cache
