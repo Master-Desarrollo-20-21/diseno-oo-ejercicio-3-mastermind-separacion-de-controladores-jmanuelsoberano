@@ -15,12 +15,11 @@ namespace MasterMind.Views.Console
 
         public void Write()
         {
+            int attempts = this.playController.GetAttemps();
             Consola.GetInstance().WriteLine();
-            Consola.GetInstance()
-                .WriteLine(
-                    Message.ATTEMPTS.ToString().Replace("#attempts", this.playController.GetAttemps().ToString()));
+            new MessageView().WriteLine(Message.ATTEMPTS, attempts);
             new SecretCombinationView(this.playController).WriteLine();
-            for (int i = 0; i < this.playController.GetAttemps(); i++)
+            for (int i = 0; i < attempts; i++)
             {
                 new ProposedCombinationView(this.playController).Write(i);
                 new ResultView(this.playController).WriteLine(i);

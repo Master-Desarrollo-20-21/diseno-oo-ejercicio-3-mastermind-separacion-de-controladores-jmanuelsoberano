@@ -1,16 +1,31 @@
-﻿using MasterMind.Models;
+﻿using System.Collections.Generic;
+using MasterMind.Models;
+using MasterMind.Types;
 
 namespace MasterMind.Controllers
 {
     public abstract class Controller
     {
-        protected Board Board;
-        protected State State;
+        protected Session session;
 
-        public Controller(Board board, State state)
+        public Controller(Session session)
         {
-            this.Board = board;
-            this.State = state;
+            this.session = session;
+        }
+
+        public void NextState()
+        {
+            this.session.NextState();
+        }
+
+        public int GetAttempts()
+        {
+            return this.session.GetAttempts();
+        }
+
+        public List<Color> GetProposedCombinationColors(int position)
+        {
+            return this.session.GetProposedCombinationColors(position);
         }
 
         public int GetWidth()
@@ -18,13 +33,5 @@ namespace MasterMind.Controllers
             return Combination.GetWidth();
         }
 
-        public void Next()
-        {
-            this.State.Next();
-        }
-
-        public abstract bool IsNull();
-
-        public abstract void accept(ControllersVisitor controllersVisitor);
     }
 }

@@ -1,32 +1,29 @@
 ﻿using MasterMind.Types;
 using System.Collections.Generic;
 using MasterMind.Models;
-using System;
 
 namespace MasterMind.Controllers
 {
     public class Logic
     {
-        private Board board;
-        private State state;
-        private Dictionary<StateValue, Controller> controllers;
+        private Session session;
+        private Dictionary<StateValue, AcceptorController> acceptorControllers;
 
-        public Logic()
+        public Logic(Session session)
         {
-            this.state = new State();
-            this.board = new Board();
-            this.controllers = new Dictionary<StateValue, Controller>()
+            this.session = session;
+            this.acceptorControllers = new Dictionary<StateValue, AcceptorController>()
             {
-                {StateValue.INITIAL, new StartController(this.board, this.state)},
-                {StateValue.IN_GAME, new PlayController(this.board, this.state)},
-                {StateValue.RESUME, new ResumeController(this.board, this.state)},
-                {StateValue.EXIT, new NullController(this.board, this.state)},
+                {StateValue.INITIAL, new StartController(this.session)},
+                {StateValue.IN_GAME, new PlayController(this.session)},
+                {StateValue.RESUME, new ResumeController(this.session)},
+                {StateValue.EXIT, new NullController(this.session)},
             };
         }
 
-        public Controller GetController()
+        public AcceptorController GetController()
         {
-            return this.controllers[this.state.GetStateValue()];
+            return this.acceptorControllers[this.session.GetValueState()];
         }
     }
 }

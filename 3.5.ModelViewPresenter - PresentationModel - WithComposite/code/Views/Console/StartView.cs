@@ -10,7 +10,7 @@ namespace MasterMind.Views.Console
         {
             Consola.GetInstance().WriteLine(Message.TITLE.ToString());
             new SecretCombinationView(startController).WriteLine();
-            startController.Next();
+            startController.NextState();
         }
     }
 }

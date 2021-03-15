@@ -2,18 +2,18 @@
 
 namespace MasterMind.Controllers
 {
-    public class NullController : Controller
+    public class NullController : Controller, AcceptorController
     {
-        public NullController(Board board, State state) : base(board, state)
+        public NullController(Session session) : base(session)
         {
         }
 
-        public override bool IsNull()
+        public bool IsNull()
         {
             return true;
         }
 
-        public override void accept(ControllersVisitor controllersVisitor)
+        public void Accept(ControllersVisitor controllersVisitor)
         {
             controllersVisitor.visit(this);
         }

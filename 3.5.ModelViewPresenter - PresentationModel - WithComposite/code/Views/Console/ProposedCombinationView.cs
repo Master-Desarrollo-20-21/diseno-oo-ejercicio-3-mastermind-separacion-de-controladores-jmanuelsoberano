@@ -1,7 +1,6 @@
 ﻿using MasterMind.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using MasterMind.Controllers;
 using MasterMind.Types;
 
@@ -18,7 +17,7 @@ namespace MasterMind.Views.Console
 
         public void Write(int position)
         {
-            foreach (Color color in this.playController.GetColorsProposedCombination(position))
+            foreach (Color color in this.playController.GetProposedCombinationColors(position))
             {
                 Consola.GetInstance().Write(color.ToString());
             }
@@ -30,12 +29,13 @@ namespace MasterMind.Views.Console
             List<Color> colors = new List<Color>();
             do
             {
-                String combination = Consola.GetInstance().ReadString(Message.PROPOSED_COMBINATION.ToString());
-                error = this.playController.CheckError(combination);
+                List<Color> combination =
+                    Color.Get(Consola.GetInstance().ReadString(Message.PROPOSED_COMBINATION.ToString()));
+                error = this.playController.GetError(combination);
                 Consola.GetInstance().WriteLine(error.ToString());
                 if (error.IsNull())
                 {
-                    colors.AddRange(combination.Select(Color.GetInstance));
+                    colors.AddRange(combination);
                 }
             } while (!error.IsNull());
 

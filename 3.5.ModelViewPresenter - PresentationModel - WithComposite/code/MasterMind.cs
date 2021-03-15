@@ -1,4 +1,5 @@
 ﻿using MasterMind.Controllers;
+using MasterMind.Models;
 using MasterMind.Views;
 
 namespace MasterMind
@@ -10,7 +11,7 @@ namespace MasterMind
 
         protected MasterMind()
         {
-            this.logic = new Logic();
+            this.logic = new Logic(new Session());
             this.view = this.CreateView();
         }
 
@@ -18,15 +19,7 @@ namespace MasterMind
 
         public void Play()
         {
-            Controller controller;
-            do
-            {
-                controller = this.logic.GetController();
-                if (!controller.IsNull())
-                {
-                    this.view.Interact(controller);
-                }
-            } while (!controller.IsNull());
+            this.view.Interact(this.logic);
         }
     }
 }

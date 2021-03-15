@@ -4,17 +4,22 @@ namespace MasterMind.Views
 {
     public abstract class View : ControllersVisitor
     {
-        public void Interact(Controller controller)
+        public void Interact(Logic logic)
         {
-            controller.accept(this);
+            AcceptorController acceptorController;
+            do
+            {
+                acceptorController = logic.GetController();
+                if (!acceptorController.IsNull())
+                {
+                    acceptorController.Accept(this);
+                }
+            } while (!acceptorController.IsNull());
         }
 
         public abstract void visit(StartController startController);
         public abstract void visit(PlayController playController);
         public abstract void visit(ResumeController resumeController);
-
-        public void visit(NullController nullController)
-        {
-        }
+        public abstract void visit(NullController nullController);
     }
 }

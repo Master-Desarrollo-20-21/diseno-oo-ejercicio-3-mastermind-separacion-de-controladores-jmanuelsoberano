@@ -46,6 +46,16 @@ namespace MasterMind.Types
             return result;
         }
 
+        public static String GetInitials(List<Color> colors)
+        {
+            String result = "";
+            foreach (Color color in colors)
+            {
+                result += color.GetInitial();
+            }
+            return result;
+        }
+
         public static Color GetInstance(char character)
         {
             for (int i = 0; i < Color.Length(); i++)
@@ -64,9 +74,36 @@ namespace MasterMind.Types
             return Values.Count() - 1;
         }
 
+        public static List<Color> Get(string initials)
+        {
+            List<Color> colors = new List<Color>();
+            foreach (char initial in initials.ToCharArray())
+            {
+                colors.Add(Color.Get(initial));
+            }
+            return colors;
+        }
+
         public static Color Get(int index)
         {
             return Values.ToList()[index];
+        }
+
+        public static Color Get(char character)
+        {
+            foreach (Color color in Color.Values)
+            {
+                if (color.GetInitial() == character)
+                {
+                    return color;
+                }
+            }
+            return Color.NULL;
+        }
+
+        public char GetInitial()
+        {
+            return this.initial.ToString().ToLower()[0];
         }
 
         public Boolean IsNull()

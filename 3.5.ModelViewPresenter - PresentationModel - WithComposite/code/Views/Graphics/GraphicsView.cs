@@ -22,5 +22,10 @@ namespace MasterMind.Views.Graphics
         {
             throw new System.NotImplementedException();
         }
+
+        public override void visit(NullController nullController)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

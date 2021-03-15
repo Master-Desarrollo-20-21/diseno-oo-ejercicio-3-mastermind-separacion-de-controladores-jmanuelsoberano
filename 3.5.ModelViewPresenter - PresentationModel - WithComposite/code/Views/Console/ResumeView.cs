@@ -16,7 +16,7 @@ namespace MasterMind.Views.Console
             }
             else
             {
-                resumeController.Next();
+                resumeController.NextState();
             }
         }
     }

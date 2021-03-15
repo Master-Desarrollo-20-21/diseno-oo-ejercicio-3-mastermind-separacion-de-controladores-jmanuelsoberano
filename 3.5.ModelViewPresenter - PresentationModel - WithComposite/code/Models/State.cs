@@ -22,7 +22,7 @@ namespace MasterMind.Models
             this.stateValue = StateValue.Values.ToList()[this.stateValue.Ordinal() + 1];
         }
 
-        public StateValue GetStateValue()
+        public StateValue GetValueState()
         {
             return this.stateValue;
         }

@@ -8,12 +8,10 @@ namespace MasterMind.Views.Console
         {
             do
             {
-                ProposedCombinationView proposedCombinationView = new ProposedCombinationView(playController);
-                playController.AddProposedCombination(proposedCombinationView.Read());
-                new BoardView(playController).Write();
+                new PlayMenu(playController).execute();
             } while (!playController.IsFinished());
 
-            playController.Next();
+            playController.NextState();
         }
     }
 }

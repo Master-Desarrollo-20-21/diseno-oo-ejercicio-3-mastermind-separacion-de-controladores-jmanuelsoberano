@@ -2,24 +2,23 @@
 
 namespace MasterMind.Controllers
 {
-    public class ResumeController : Controller
+    public class ResumeController : Controller, AcceptorController
     {
-        public ResumeController(Board board, State state) : base(board, state)
+        public ResumeController(Session session) : base(session)
         {
         }
 
         public void Reset()
         {
-            this.Board.Reset();
-            this.State.Reset();
+            this.session.Reset();
         }
 
-        public override bool IsNull()
+        public bool IsNull()
         {
             return false;
         }
 
-        public override void accept(ControllersVisitor controllersVisitor)
+        public void Accept(ControllersVisitor controllersVisitor)
         {
             controllersVisitor.visit(this);
         }

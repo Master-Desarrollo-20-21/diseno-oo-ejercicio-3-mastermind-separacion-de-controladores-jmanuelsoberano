@@ -4,92 +4,92 @@ using System.Collections.Generic;
 
 namespace MasterMind.Controllers
 {
-    public class PlayController : Controller
+    public class PlayController : Controller, AcceptorController
     {
-        public PlayController(Board board, State state) : base(board, state)
+        private ProposalController proposalController;
+        private UndoController undoController;
+        private RedoController redoController;
+
+        public PlayController(Session session) : base(session)
         {
+            this.proposalController = new ProposalController(this.session);
+            this.undoController = new UndoController(this.session);
+            this.redoController = new RedoController(this.session);
+        }
+
+        public Error GetError(List<Color> combination)
+        {
+            return this.proposalController.GetError(combination);
         }
 
         public void AddProposedCombination(List<Color> combination)
         {
-            ProposedCombination proposedCombination = new ProposedCombination();
-            proposedCombination.GetColors().AddRange(combination);
-            this.Board.AddProposedCombination(proposedCombination);
+            this.proposalController.Add(combination);
         }
 
         public int GetBlacksResult(int position)
         {
-            return this.Board.GetResult(position).GetBlacks();
+            return this.proposalController.GetBlacks(position);
         }
 
         public int GetWhitesResult(int position)
         {
-            return this.Board.GetResult(position).GetWhites();
+            return this.proposalController.GetWhites(position);
         }
 
-        public List<Color> GetColorsProposedCombination(int position)
+        public List<Color> GetProposedCombinationColors(int position)
         {
-            return this.Board.GetProposedCombination(position).GetColors();
+            return this.proposalController.GetProposedCombinationColors(position);
         }
 
         public int GetAttemps()
         {
-            return this.Board.GetAttemps();
+            return this.proposalController.GetAttempts();
         }
 
         public bool IsFinished()
         {
-            return this.Board.IsFinished();
-        }
-
-        public Error CheckError(string combination)
-        {
-            if (combination.Length != Combination.GetWidth())
-            {
-                return Error.WRONG_LENGTH;
-            }
-
-            List<Color> colors = new List<Color>();
-            for (int i = 0; i < combination.Length; i++)
-            {
-                Color color = Color.GetInstance(combination[i]);
-                if (color.IsNull())
-                {
-                    return Error.WRONG_CHARACTERS;
-                }
-
-                for (int j = 0; j < i; j++)
-                {
-                    if (colors[j] == color)
-                    {
-                        return Error.DUPLICATED;
-                    }
-                }
-
-                colors.Add(color);
-            }
-
-            return Error.NULL;
+            return this.proposalController.IsFinished();
         }
 
         public bool IsLooser()
         {
-            return this.Board.IsLooser();
+            return this.proposalController.IsLooser();
         }
 
         public bool IsWinner()
         {
-            return this.Board.IsWinner();
+            return this.proposalController.IsWinner();
         }
 
-        public override bool IsNull()
+        public bool IsNull()
         {
             return false;
         }
 
-        public override void accept(ControllersVisitor controllersVisitor)
+        public void Accept(ControllersVisitor controllersVisitor)
         {
             controllersVisitor.visit(this);
+        }
+
+        public bool IsUndoable()
+        {
+            return this.undoController.IsUndoable();
+        }
+
+        public bool IsRedoable()
+        {
+            return this.redoController.IsRedoable();
+        }
+
+        public void Undo()
+        {
+            this.undoController.Undo();
+        }
+
+        public void Redo()
+        {
+            this.redoController.Redo();
         }
     }
 }

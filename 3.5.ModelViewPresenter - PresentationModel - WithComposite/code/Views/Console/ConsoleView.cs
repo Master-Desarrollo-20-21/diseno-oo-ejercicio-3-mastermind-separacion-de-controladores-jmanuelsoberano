@@ -29,5 +29,9 @@ namespace MasterMind.Views.Console
         {
             this.resumeView.Interact(resumeController);
         }
+
+        public override void visit(NullController nullController)
+        {
+        }
     }
 }
